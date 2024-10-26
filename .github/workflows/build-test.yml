@@ -71,6 +71,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y zlib1g-dev g++ build-essential cmake ninja-build python3-dev
           pip install torch==2.1.2
+          git submodule update --init --recursive
 
       - name: Install Triton
         run: |
