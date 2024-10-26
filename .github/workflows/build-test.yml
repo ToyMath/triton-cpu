@@ -15,10 +15,10 @@ on:
 jobs:
   pre-commit:
     name: Pre-commit checks
-    runs-on:
-      - glados
-      - intel
-      - x86
+    runs-on: ubuntu-latest
+      #- glados
+      #- intel
+      #- x86
     steps:
       - name: Print inputs
         run: |
@@ -46,10 +46,10 @@ jobs:
 
   build-test:
     name: Build and test
-    runs-on:
-      - glados
-      - intel
-      - x86
+    runs-on: ubuntu-latest
+      #- glados
+      #- intel
+      #- x86
     strategy:
       matrix:
         python: ['3.11']
