@@ -49,7 +49,7 @@ public:
 
 struct FuncOpConversion : public ConvertOpToLLVMPattern<triton::FuncOp> {
   FuncOpConversion(LLVMTypeConverter &converter, PatternBenefit benefit)
-      : ConvertOpToLLVMPattern(converter, benefit) {}
+      : ConvertOpToLLVMPattern<triton::FuncOp>(converter, benefit) {}
 
   /// Only retain those attributes that are not constructed by
   /// `LLVMFuncOp::build`. If `filterArgAttrs` is set, also filter out argument
