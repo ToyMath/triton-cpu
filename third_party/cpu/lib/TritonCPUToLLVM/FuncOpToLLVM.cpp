@@ -104,12 +104,9 @@ struct FuncOpConversion : public ConvertOpToLLVMPattern<triton::FuncOp> {
     auto amendedFuncOp = rewriter.create<triton::FuncOp>(
         funcOp.getLoc(), funcOp.getName(), amendedFuncTy, amendedAttrs);
     auto &region = funcOp.getBody();
-    region.addArgument(i32_ty, loc);
-    region.addArgument(i32_ty, loc);
-    region.addArgument(i32_ty, loc);
-    region.addArgument(ui32_ty, loc);
-    region.addArgument(ui32_ty, loc);
-    region.addArgument(ui32_ty, loc);
+    region.front().addArguments(
+        {i32_ty, i32_ty, i32_ty, ui32_ty, ui32_ty, ui32_ty}, loc);
+
     rewriter.inlineRegionBefore(region, amendedFuncOp.getBody(),
                                 amendedFuncOp.end());
     return amendedFuncOp;
